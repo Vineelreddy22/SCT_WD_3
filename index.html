@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Master</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Main Menu Screen -->
+<div id="menu-screen" class="screen active">
+    <div class="quiz-container">
+        <h1>🎯 Quiz Master</h1>
+        <p class="subtitle">Choose your mode to begin!</p>
+        <div class="mode-buttons">
+            <button class="mode-btn" onclick="startSinglePlayer()">
+                <span class="icon">👤</span>
+                <span>Single Player</span>
+            </button>
+            <button class="mode-btn" onclick="showMultiplayerMenu()">
+                <span class="icon">👥</span>
+                <span>Multiplayer</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Multiplayer Menu Screen -->
+<div id="multiplayer-menu" class="screen">
+    <div class="quiz-container">
+        <h1>🎯 Multiplayer Mode</h1>
+        <p class="subtitle">Create or join a room</p>
+        <div class="mode-buttons">
+            <button class="mode-btn" onclick="showCreateRoom()">
+                <span class="icon">➕</span>
+                <span>Create Room</span>
+            </button>
+            <button class="mode-btn" onclick="showJoinRoom()">
+                <span class="icon">🔗</span>
+                <span>Join Room</span>
+            </button>
+        </div>
+        <button class="back-btn" onclick="backToMenu()">← Back</button>
+    </div>
+</div>
+
+<!-- Create Room Screen -->
+<div id="create-room-screen" class="screen">
+    <div class="quiz-container">
+        <h1>🎯 Create Room</h1>
+        <div class="form-group">
+            <label for="player-name-create">Enter Your Name:</label>
+            <input type="text" id="player-name-create" placeholder="Your name..." maxlength="15">
+        </div>
+        <button class="action-btn" onclick="createRoom()">Create Room</button>
+        <button class="back-btn" onclick="backToMultiplayerMenu()">← Back</button>
+    </div>
+</div>
+
+<!-- Join Room Screen -->
+<div id="join-room-screen" class="screen">
+    <div class="quiz-container">
+        <h1>🎯 Join Room</h1>
+        <div class="form-group">
+            <label for="room-id-input">Enter Room ID:</label>
+            <input type="text" id="room-id-input" placeholder="Room ID..." maxlength="6">
+        </div>
+        <div class="form-group">
+            <label for="player-name-join">Enter Your Name:</label>
+            <input type="text" id="player-name-join" placeholder="Your name..." maxlength="15">
+        </div>
+        <button class="action-btn" onclick="joinRoom()">Join Room</button>
+        <button class="back-btn" onclick="backToMultiplayerMenu()">← Back</button>
+    </div>
+</div>
+
+<!-- Quiz Screen -->
+<div id="quiz-screen" class="screen">
+    <div class="quiz-wrapper">
+        <div class="quiz-container">
+            <h1>🎯 Quiz Master</h1>
+
+            <div class="quiz-info">
+                <span id="question-number">Question 1 of 10</span>
+                <span id="player-info" class="player-info"></span>
+            </div>
+
+            <div class="progress-container">
+                <div id="progress"></div>
+            </div>
+
+            <div class="timer">
+                ⏱️ Time Left: <span id="time">15</span>s
+            </div>
+
+            <h2 id="question"></h2>
+
+            <div id="answers" class="answers"></div>
+
+            <button id="next-btn">Next Question →</button>
+            <button id="back-to-menu-btn" class="back-btn-quiz hidden">← Back to Menu</button>
+        </div>
+
+        <!-- Leaderboard for multiplayer -->
+        <div id="leaderboard-panel" class="leaderboard-panel hidden">
+            <h3>📊 Leaderboard</h3>
+            <div id="leaderboard-list" class="leaderboard-list"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Room Waiting Screen -->
+<div id="room-waiting-screen" class="screen">
+    <div class="quiz-container">
+        <h1>🎯 Room Created!</h1>
+        <div class="room-info">
+            <p>Share this Room ID with others:</p>
+            <div class="room-id-display">
+                <span id="display-room-id"></span>
+                <button class="copy-btn" onclick="copyRoomId()">📋 Copy</button>
+            </div>
+        </div>
+        <div class="players-list">
+            <h3>Players in Room:</h3>
+            <div id="players-waiting" class="players-waiting"></div>
+        </div>
+        <button class="action-btn" onclick="startQuizMultiplayer()">Start Quiz</button>
+        <button class="back-btn" onclick="backToMenu()">← Back</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
