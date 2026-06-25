@@ -27,7 +27,7 @@ A modern and interactive Quiz Game Application built using HTML, CSS, and JavaSc
 
 ## Live Demo
 
-https://vineelreddy22.github.io/SCT_WD_3/
+ https://vineelreddy22.github.io/SCT_WD_3/
 
 ## Screenshots
 
